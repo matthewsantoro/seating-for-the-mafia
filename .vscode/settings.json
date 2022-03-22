@@ -1,0 +1,7 @@
+{
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.languageServer": "Default",
+    "python.formatting.provider": "autopep8"
+
+}
