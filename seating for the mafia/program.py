@@ -67,17 +67,16 @@ def create_games(n_rounds: int, n_tables: int, players: list) -> list:
         list: список всех игр
     """
     games = []
-    
+
     for i in range(n_rounds):
         round = {'tables': [],
                  'passing_players': []
                  }
         number_of_passing_players = len(players) % (n_tables * 10)
-        
-            
+
         if number_of_passing_players != 0:
             start_index = (i % number_of_passing_players) * \
-            number_of_passing_players
+                number_of_passing_players
             passing_players = players[start_index: start_index + 6]
             players_for_round = [
                 item for item in players if item not in passing_players]
@@ -93,7 +92,6 @@ def create_games(n_rounds: int, n_tables: int, players: list) -> list:
                 choosen_player['position'][k] += 1
                 table.append(choosen_player)
                 players_for_round.remove(choosen_player)
-
             round['tables'].append(table)
         games.append(round)
     return games
@@ -104,4 +102,3 @@ if __name__ == '__main__':
     games = create_games(NUMBER_OF_ROUNDS, NUMBER_OF_TABLES, players)
 
     print_players(games)
-    
